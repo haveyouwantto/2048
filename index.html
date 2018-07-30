@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>2048 Minecraft Updates</title>
+
+  <link href="style/main.css" rel="stylesheet" type="text/css">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
+  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+  <style>
+    .tile-inner { background-position: center center !important; background-size: cover !important; background-repeat: no-repeat !important; text-indent: -999px; overflow: hidden; }
+    .tile.tile-2 .tile-inner { background-image: url('img/1.0.png') !important; }
+    .tile.tile-4 .tile-inner { background-image: url('img/1.1.png') !important; }
+    .tile.tile-8 .tile-inner { background-image: url('img/1.2.png') !important; }
+    .tile.tile-16 .tile-inner { background-image: url('img/1.3.png') !important; }
+    .tile.tile-32 .tile-inner { background-image: url('img/1.4.png') !important; }
+    .tile.tile-64 .tile-inner { background-image: url('img/1.5.png') !important; }
+    .tile.tile-128 .tile-inner { background-image: url('img/1.6.png') !important; }
+    .tile.tile-256 .tile-inner { background-image: url('img/1.7.png') !important; }
+    .tile.tile-512 .tile-inner { background-image: url('img/1.8.png') !important; }
+    .tile.tile-1024 .tile-inner { background-image: url('img/1.9.png') !important; }
+    .tile.tile-2048 .tile-inner { background-image: url('img/1.10.png') !important; }
+    .tile.tile-4096 .tile-inner { background-image: url('img/1.11.png') !important; }
+    .tile.tile-8192 .tile-inner { background-image: url('img/1.12.png') !important; }
+    .tile.tile-16384 .tile-inner { background-image: url('img/1.13.png') !important; }
+    .tile.tile-super .tile-inner { background-image: url('img/future.png') !important; }
+    .backimg{
+      -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: fixed;
+  width: 110%;
+  height: 110%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  background-image: url('https://minecraft.net/static/pages/img/index-hero-og.088fb7996b03.jpg');
+    }
+    @font-face {
+  font-family: 'MyWebFont';
+  src: url('style/minecraft.ttf') format('truetype');
+}  
+body{
+  font-family: 'MyWebFont', Fallback, sans-serif;
+}
+  </style>
+</head>
+<body>
+  <div class=backimg></div>
+  <div class="container">
+    <div class="heading">
+      <h1 class="title">2048 Minecraft Updates</h1>
+      <div class="scores-container">
+        <div class="score-container">0</div>
+        <div class="best-container">0</div>
+      </div>
+    </div>
+
+    <div class="above-game">
+      <p class="game-intro">Join the updates and get to the <strong>Frostburn Update tile!</strong></p>
+      <a class="restart-button">New Game</a>
+    </div>
+
+    <div class="game-container">
+      <div class="game-message">
+        <p></p>
+        <div class="lower">
+	        <a class="keep-playing-button">Keep going</a>
+          <a class="retry-button">Try again</a>
+        </div>
+      </div>
+
+      <div class="grid-container">
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+          <div class="grid-cell"></div>
+        </div>
+      </div>
+
+      <div class="tile-container">
+
+      </div>
+    </div>
+
+    <p class="game-explanation">
+      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same pattern touch, they <strong>merge into one!</strong>
+    </p>
+    <hr>
+    <p>
+      <strong class="important">Note:</strong> This is a fork from <a href="//gabrielecirulli.github.io/2048/index.html">http://gabrielecirulli.github.io/2048</a>, which created by <a href="//gabrielecirulli.com" target="_blank">Gabriele Cirulli.</a>    </p>
+    <hr>
+  </div>
+
+  <script src="js/bind_polyfill.js"></script>
+  <script src="js/classlist_polyfill.js"></script>
+  <script src="js/animframe_polyfill.js"></script>
+  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/html_actuator.js"></script>
+  <script src="js/grid.js"></script>
+  <script src="js/tile.js"></script>
+  <script src="js/local_storage_manager.js"></script>
+  <script src="js/game_manager.js"></script>
+  <script src="js/application.js"></script>
+</body>
+</html>
